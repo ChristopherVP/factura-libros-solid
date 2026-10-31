@@ -1,5 +1,16 @@
 package ejecutable;
 
+import dominio.Factura;
+import dominio.Libro;
+import negocio.CalculadoraFactura;
+import negocio.ImpresoraFactura;
+import pago.MetodoPago;
+import pago.PagoEfectivo;
+import pago.PagoTarjeta;
+import persistencia.ArchivoPersistencia;
+import persistencia.FacturaPersistencia;
+import persistencia.PostgresPersistencia;
+
 
 public class AbiertaCerrada {
 

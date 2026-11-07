@@ -1,20 +1,25 @@
 package persistencia;
 
-import DB.ConexionPostgres;
+import DB.ProveedorConexion;
 import dominio.Factura;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class PostgresPersistencia implements FacturaPersistencia {
+    private final ProveedorConexion proveedorConexion;
+
+    public PostgresPersistencia(ProveedorConexion proveedorConexion) {
+        this.proveedorConexion = proveedorConexion;
+    }
 
     @Override
     public void guardar(Factura factura, double total, String metodoPago) {
 
         String sql = """
-                INSERT INTO factura(libro, autor, isbn, precio, cantidad, descuento, impuesto,total, metodo_pago)
+                INSERT INTO factura(libro, autor, isbn, precio, cantidad, descuento, impuesto, total, metodo_pago)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""";
-
-        try (Connection conn = ConexionPostgres.obtenerConexion();
+        try (Connection conn = proveedorConexion.obtenerConexion();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, factura.getLibro().getNombre());
@@ -28,9 +33,8 @@ public class PostgresPersistencia implements FacturaPersistencia {
             ps.setString(9, metodoPago);
             ps.executeUpdate();
             System.out.println("Factura almacenada en PostgreSQL.");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException | IllegalStateException e) {
+            System.err.println("No se pudo guardar en PostgreSQL: " + e.getMessage());
         }
     }
 }

@@ -1,5 +1,4 @@
 package dominio;
-
 public class Factura {
 
     private Libro libro;

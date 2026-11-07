@@ -1,5 +1,6 @@
 package ejecutable;
 
+import DB.ConexionPostgres;
 import dominio.Factura;
 import dominio.Libro;
 import negocio.CalculadoraFactura;
@@ -20,7 +21,7 @@ public class AbiertaCerrada {
         ImpresoraFactura impresora = new ImpresoraFactura();
 
         FacturaPersistencia archivo = new ArchivoPersistencia();
-        FacturaPersistencia postgres = new PostgresPersistencia();
+        FacturaPersistencia postgres = new PostgresPersistencia(new ConexionPostgres());
 
         // Factura 1: Clean Code - Pago en efectivo
         Libro libro1 =

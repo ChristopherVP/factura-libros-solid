@@ -18,3 +18,33 @@ Cantidad: 3
 Total: 143.64000000000001
 Metodo de pago: PagoTarjeta
 
+Libro: Clean Code
+Cantidad: 2
+Total: 100.80000000000001
+Metodo de pago: PagoEfectivo
+
+Libro: Effective Java
+Cantidad: 3
+Total: 143.64000000000001
+Metodo de pago: PagoTarjeta
+
+Libro: Clean Code
+Cantidad: 2
+Total: 100.80000000000001
+Metodo de pago: PagoEfectivo
+
+Libro: Effective Java
+Cantidad: 3
+Total: 143.64000000000001
+Metodo de pago: PagoTarjeta
+
+Libro: Clean Code
+Cantidad: 2
+Total: 100.80000000000001
+Metodo de pago: PagoEfectivo
+
+Libro: Effective Java
+Cantidad: 3
+Total: 143.64000000000001
+Metodo de pago: PagoTarjeta
+
